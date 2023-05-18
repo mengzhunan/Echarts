@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <div id="demo" style="width: 600px;height: 600px;"></div>
+
+    <script>
+        let myChart = echarts.init(document.querySelector('#demo'));
+
+        // let option = {
+        //     xAxis: {
+        //         type: "category",
+        //         data: ['足球', '篮球', '兵乓球', '羽毛球', '橄榄球']
+        //     },
+        //     yAxis: {},
+        //     tooltip: {},
+        //     series: [
+        //         {
+        //             type: "bar",
+        //             name: "2019",
+        //             data: [105, 204, 512, 380, 90]
+        //         },
+        //         {
+        //             type: "bar",
+        //             name: "2020",
+        //             data: [80, 140, 212, 160, 60]
+        //         },
+        //         {
+        //             type: "bar",
+        //             name: "2021",
+        //             data: [40, 120, 180, 110, 30]
+        //         },
+        //     ]
+        // }
+
+        // 把上面数据放到数据集里面写法
+        let option = {
+            dataset: {
+                source: [
+                    ["商品","2019","2020","2021"],
+                    ["足球",105,80,40],
+                    ["篮球",204,140,120],
+                    ["兵乓球",512,212,180],
+                    ["羽毛球",380,160,110],
+                    ["橄榄球",90,60,30],
+                ]
+            },
+            xAxis: {
+                type: "category",//默认类目轴对应 dataset的第一列
+            },
+            yAxis: {},
+            tooltip: {},
+            series: [
+                {
+                    type: "bar",
+                },
+                {
+                    type: "bar",
+                },
+                {
+                    type: "bar",
+                },
+            ]
+        }
+
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

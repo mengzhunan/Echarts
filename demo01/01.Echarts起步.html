@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+
+    <!-- 图标容器 -->
+    <div id="demo"></div>
+    <script>
+        // console.log(echarts);
+        // 初始化echarts对象将页面中的图标容器传入，提高init方法
+        let myCharts = echarts.init(document.querySelector('#demo'));
+
+        // 指定图标的配置选项
+        let option = {
+            // 标题
+            title: {
+                text: "销量图标"
+            },
+            // 提示框
+            tooltip: {},
+            // 
+            legend: {
+                data: ['销量']
+            },
+            // x轴的内容
+            xAxis: {
+                data: ['足球', '篮球', '兵乓球', '羽毛球', '橄榄球', '棒球']
+            },
+            // y轴的内容
+            yAxis: {}, //根据数量默认显示
+            series: [
+                {
+                    name: '销量',
+                    type: 'bar',
+                    data: [12, 65, 85, 40, 10, 45]
+                }
+            ]
+        };
+        // 将配置指定到初始化echarts对象中
+        myCharts.setOption(option)
+        // window.onresize = () => {
+        //     myCharts.resize();
+        // }
+
+        // 将 echarts 图标移除需要2步
+        // 第一步dom操作删除 图标容器元素
+        // 第二部调用myChart.dispose() 这样该echarts实例对象就会在内存中被释放
+        // 如果不被释放该实例对象，将会造成内存泄漏
+        // myCharts.dispose()
+    </script>
+</body>
+
+</html>
