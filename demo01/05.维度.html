@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维度</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <div id="demo" style="width: 600px;height: 600px;"></div>
+
+    <script>
+        let myChart = echarts.init(document.querySelector('#demo'));
+        let option = {
+            tooltip: {},
+            legend:{},
+            dataset: {
+                source: [
+                    ["小明", 102, 120, 115, 90, 82, 95],
+                    ["小红", 98, 128, 108, 83, 87, 90],
+                    ["小李", 118, 98, 102, 78, 80, 89],
+                    ["小鹏", 96, 92, 102, 78, 84, 88],
+                    ["小黄", 108, 112, 118, 80, 78, 88],
+                    ["小杰", 97, 90, 98, 78, 80, 84],
+                ],
+                // dimensions: [] //一般情况下我们不会在 dataset 中通过 dimensions 指定维度，而是直接将维度信息添加至数据中
+            },
+            xAxis: {
+                type: "category"
+            },
+            yAxis: {},
+            series: [
+                {
+                    type: "bar",
+                    // 定义维度
+                    dimensions: ["成绩", "语文", "数学", "英语", "物理", "化学", "生物"],
+                },
+                {
+                    type: "bar",
+                    dimensions: ["成绩", "语文", "数学", "英语", "物理", "化学", "生物"],
+                },
+                {
+                    type: "bar",
+                    dimensions: ["成绩", "语文", "数学", "英语", "物理", "化学", "生物"],
+                },
+                {
+                    type: "bar",
+                    dimensions: ["成绩", "语文", "数学", "英语", "物理", "化学", "生物"],
+                },
+                {
+                    type: "bar",
+                    dimensions: ["成绩", "语文", "数学", "英语", "物理", "化学", "生物"],
+                },
+                {
+                    type: "bar",
+                    dimensions: ["成绩", "语文", "数学", "英语", "物理", "化学", "生物"],
+                }
+            ]
+        }
+
+
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

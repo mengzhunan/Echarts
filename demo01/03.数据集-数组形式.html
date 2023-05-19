@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>03.数据集-数组形式</title>
 </head>
 
 <body>
@@ -43,14 +43,17 @@
 
         // 把上面数据放到数据集里面写法
         let option = {
+            title: { text: "销售柱形图" },
+            legend: {},
+            tooltip: {},
             dataset: {
                 source: [
-                    ["商品","2019","2020","2021"],
-                    ["足球",105,80,40],
-                    ["篮球",204,140,120],
-                    ["兵乓球",512,212,180],
-                    ["羽毛球",380,160,110],
-                    ["橄榄球",90,60,30],
+                    ["商品", "2019", "2020", "2021"],
+                    ["足球", 105, 80, 40],
+                    ["篮球", 204, 140, 120],
+                    ["兵乓球", 512, 212, 180],
+                    ["羽毛球", 380, 160, 110],
+                    ["橄榄球", 90, 60, 30],
                 ]
             },
             xAxis: {
@@ -58,17 +61,8 @@
             },
             yAxis: {},
             tooltip: {},
-            series: [
-                {
-                    type: "bar",
-                },
-                {
-                    type: "bar",
-                },
-                {
-                    type: "bar",
-                },
-            ]
+            // seriesLayoutBy 改变轴体 行列转换
+            series: [{ type: "bar", seriesLayoutBy: 'row' }, { type: "bar", seriesLayoutBy: 'row' }, { type: "bar", seriesLayoutBy: 'row' }]
         }
 
         myChart.setOption(option);

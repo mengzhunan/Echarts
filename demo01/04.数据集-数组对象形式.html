@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据集-数组对象形式</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <div id="demo" style="width: 600px;height: 600px;"></div>
+
+    <script>
+        let myChart = echarts.init(document.querySelector('#demo'));
+
+        let option = {
+            title: { text: "销售柱形图" },
+            legend: {},
+            tooltip: {},
+            dataset: {
+                // 指定x轴维度
+                dimensions: ["product", 2019, 2020, 2021],
+                source: [
+                    { product: "足球", 2019: 105, 2020: 80, 2021: 40 },
+                    { product: "篮球", 2019: 204, 2020: 140, 2021: 120 },
+                    { product: "兵乓球", 2019: 512, 2020: 212, 2021: 180 },
+                    { product: "羽毛球", 2019: 380, 2020: 160, 2021: 110 },
+                    { product: "橄榄球", 2019: 90, 2020: 60, 2021: 30 },
+                ]
+            },
+            xAxis: {
+                type: "category",//默认类目轴对应 dataset的第一列
+            },
+            yAxis: {},
+            tooltip: {},
+            series: [{ type: "bar" }, { type: "bar" }, { type: "bar" }]
+        }
+
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
